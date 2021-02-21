@@ -27,8 +27,7 @@ jobs:
       
       - name: Enable tunnel
         run: |
-          #Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in" 
-          D:\a\fastwin\fastwin\ngrok\ngrok.exe tcp 3389 -region in | Out-File -FilePath .\info.txt
-          Get-Content -Path .\info.txt
+          Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in" 
+          curl http://127.0.0.1:4040/api/tunnels | ConvertFrom-Json
           Start-Sleep -s 21600
 
