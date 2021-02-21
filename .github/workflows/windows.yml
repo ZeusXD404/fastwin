@@ -29,8 +29,13 @@ jobs:
         run: |
           Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
           Start-Sleep -s 10
-          Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json | Out-File -FilePath .\info.txt
-          Get-Content -Path .\info.txt
+          $ngrokOutput = ConvertFrom-Json (Invoke-WebRequest -Uri http://localhost:4040/api/tunnels).Content
+          $httpsUrl = $ngrokOutput.tunnels.public_url[0]
+          $httpUrl = $ngrokOutput.tunnels.public_url[1]
+          $env:httpsUrl
+          $env:httpUrl
+          # Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json | Out-File -FilePath .\info.txt
+          # Get-Content -Path .\info.txt
           # curl http://localhost:4040/api/tunnels
           Start-Sleep -s 21600
 
