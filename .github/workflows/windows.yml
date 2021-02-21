@@ -27,9 +27,9 @@ jobs:
       
       - name: Enable tunnel
         run: |
-          Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in" | Out-File -FilePath .\info1.txt
+          Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
           Invoke-WebRequest -URI http://localhost:4040/api/tunnels | Out-File -FilePath .\info.txt
-          Get-Content -Path .\info1.txt
+          Get-Content -Path .\info.txt
           # curl http://localhost:4040/api/tunnels
 
 
