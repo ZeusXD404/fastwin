@@ -28,6 +28,7 @@ jobs:
       - name: Enable tunnel
         run: |
           Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in" 
-          curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p'
-          Start-Sleep -s 21600
+          curl http://127.0.0.1:4040/api/tunnels | Out-File -FilePath .\Process.txt
+          Get-Content -Path .\Process.txt
+
 
