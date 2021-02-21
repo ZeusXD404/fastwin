@@ -27,9 +27,8 @@ jobs:
       
       - name: Enable tunnel
         run: |
-          Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
-          $Response = Invoke-WebRequest -URI http://localhost:4040/api/tunnels
-          $Response.InputFields | Where-Object {$_.name -like "* http*"} | Select-Object Name, Value
-          $Env:Response
+          #Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in" 
+          D:\a\fastwin\fastwin\ngrok\ngrok.exe tcp 3389 -region in | Out-File -FilePath .\info.txt
+          Get-Content -Path .\info.txt
           Start-Sleep -s 21600
 
