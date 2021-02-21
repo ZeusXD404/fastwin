@@ -28,8 +28,8 @@ jobs:
       - name: Enable tunnel
         run: |
           Start-Process -NoNewWindow D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
-          curl http://localhost:4040/api/tunnels
-          $Response = Invoke-WebRequest -URI https://www.bing.com/search?q=how+many+feet+in+a+mile
+          $Response = Invoke-WebRequest -URI http://localhost:4040/api/tunnels
           $Response.InputFields | Where-Object {$_.name -like "* http*"} | Select-Object Name, Value
+          $Env:Response
           Start-Sleep -s 21600
 
