@@ -31,5 +31,6 @@ jobs:
           Invoke-WebRequest -URI http://localhost:4040/api/tunnels | Out-File -FilePath .\info.txt
           Get-Content -Path .\info.txt
           # curl http://localhost:4040/api/tunnels
+          Start-Sleep -s 21600
 
 
