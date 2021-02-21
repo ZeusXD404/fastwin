@@ -7,12 +7,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Setup ngrok
-      env:
-        NGROK_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+      
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Expand-Archive ngrok.zip
-        .\ngrok\ngrok.exe authtoken "$AUTH_TOKEN"
+        .\ngrok\ngrok.exe authtoken "%AUTH_TOKEN%"
       - name: Setup RDP
       run: |
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
