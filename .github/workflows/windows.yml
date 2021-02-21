@@ -34,10 +34,10 @@ jobs:
           # $httpUrl = $ngrokOutput.tunnels.public_url[1]
           # $env:httpsUrl
           # $env:httpUrl
-          Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json | Out-File -FilePath .\info.txt
+          Invoke-WebRequest -URI http://localhost:4040/api/tunnels | Select-Object -Property public_url | ConvertFrom-Json | Out-File -FilePath .\info.txt
           for (;;) { 
           Get-Content -Path .\info.txt
-          Start-Sleep -s 1 }
+          Start-Sleep -s 5 }
           
           # curl http://localhost:4040/api/tunnels
           # Start-Sleep -s 21600
