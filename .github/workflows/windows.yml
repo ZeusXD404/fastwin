@@ -4,7 +4,6 @@ defaults:
     shell: powershell
 on:
   workflow_dispatch:
-  push:
 
 jobs:
   build:
@@ -33,7 +32,7 @@ jobs:
           for (;;) 
           { 
           Get-Content -Path .\info.txt
-          Start-Sleep -s 5 
+          Start-Sleep -s 7
           }
           
 
