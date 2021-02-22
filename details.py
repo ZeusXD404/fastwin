@@ -8,6 +8,7 @@ from telepot.loop import MessageLoop
 
 def getConnectionDetails():
     connection_list = []
+    output = " "
     
     #offline test data
     #with open('example.json') as f:
