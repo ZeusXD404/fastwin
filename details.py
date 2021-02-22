@@ -39,7 +39,7 @@ def action(msg):
 
     if command == '/status':
         conn = getConnectionDetails()
-        telegram_bot.sendMessage (chat_id, conn)
+        telegram_bot.sendMessage (chat_id, conn, parse_mode= 'Markdown')
 
 token = os.environ['BOT_TOKEN']
 
