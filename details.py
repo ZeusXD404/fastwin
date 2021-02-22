@@ -36,10 +36,8 @@ def action(msg):
     command = msg['text']
 
     print ('Received: %s' % command)
-
-    if command == '/status':
-        conn = getConnectionDetails()
-        telegram_bot.sendMessage (chat_id, conn, parse_mode="MarkdownV2")
+    conn = getConnectionDetails()
+    telegram_bot.sendMessage (chat_id, conn, parse_mode="MarkdownV2")
 
 token = os.environ['BOT_TOKEN']
 
