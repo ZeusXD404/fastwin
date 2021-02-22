@@ -4,7 +4,6 @@ defaults:
     shell: powershell
 on:
   workflow_dispatch:
-  push:
 
 jobs:
   build:
