@@ -23,22 +23,17 @@ jobs:
           Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
           Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
           Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
-          
-      - uses: apogiatzis/ngrok-tunneling-action@master
-        with:
-          timeout: 6h
-          port: 3389
-          ngrok_authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}
       
-      #- name: Enable tunnel
-      #  run: |
-      #    Start-Process -WindowStyle Hidden D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
-      #    Start-Sleep -s 7
-      #    Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json | Out-File -FilePath .\info.txt
-      #    for (;;) 
-      #    { 
-      #    Get-Content -Path .\info.txt
-      #    Start-Sleep -s 7
-      #    }
+      - name: Enable tunnel
+        run: |
+          Start-Process -WindowStyle Hidden D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
+          Start-Sleep -s 5
+          #Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json | Out-File -FilePath .\info.txt
+          for (;;) 
+          { 
+          Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json
+          #Get-Content -Path .\info.txt
+          Start-Sleep -s 10
+          }
           
 
