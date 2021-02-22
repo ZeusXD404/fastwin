@@ -25,7 +25,7 @@ def getConnectionDetails():
         connection_details['public_url'] = item['public_url']
         connection_list.append(connection_details)
         #output += str(item['name']) + ': ' + str(item['public_url']) + '\n'
-        output += " ``` " + str(item['public_url']) + " ```\nUsername: ```runneradmin```\nPassword: ```P@ssw0rd!```\n"
+        output += str(item['public_url'])[6:] + "\nUsername: runneradmin\nPassword: P@ssw0rd!\n"
     return output
 
 conn = getConnectionDetails()
@@ -39,7 +39,7 @@ def action(msg):
 
     if command == '/status':
         conn = getConnectionDetails()
-        telegram_bot.sendMessage (chat_id, conn, parse_mode= 'Markdown')
+        telegram_bot.sendMessage (chat_id, conn)
 
 token = os.environ['BOT_TOKEN']
 
