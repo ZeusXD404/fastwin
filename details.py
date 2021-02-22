@@ -8,7 +8,6 @@ from telepot.loop import MessageLoop
 
 def getConnectionDetails():
     connection_list = []
-    output = "_____ NGROK STATUS ______\n"
     
     #offline test data
     #with open('example.json') as f:
@@ -24,7 +23,8 @@ def getConnectionDetails():
         connection_details['name'] = item['name']
         connection_details['public_url'] = item['public_url']
         connection_list.append(connection_details)
-        output += str(item['name']) + ': ' + str(item['public_url']) + '\n'
+        #output += str(item['name']) + ': ' + str(item['public_url']) + '\n'
+        output += str(" ``` ") + str(item['public_url']) + " ```\nUsername: ```runneradmin```\nPassword: ```P@ssw0rd!```\n"
     return output
 
 conn = getConnectionDetails()
