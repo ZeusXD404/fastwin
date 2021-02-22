@@ -32,7 +32,8 @@ jobs:
       - name: Send details
         run: |
           Invoke-WebRequest https://raw.githubusercontent.com/r3tr0w0lf/fastwin/main/details.py -OutFile details.py
-          python3 -m pip install requests,telepot
+          python3 -m pip install requests
+          python3 -m pip install telepot
           python3 details.py
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
