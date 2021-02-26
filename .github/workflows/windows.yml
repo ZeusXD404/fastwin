@@ -27,11 +27,8 @@ jobs:
       - name: Enable tunnel
         run: |
           Start-Process -WindowStyle Hidden D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
-          # Start-Sleep -s 5
-          # Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json | Out-File -FilePath .\info.txt
           for (;;) 
           { 
           Invoke-WebRequest -URI http://localhost:4040/api/tunnels | ConvertFrom-Json
-          # Get-Content -Path .\info.txt
-          Start-Sleep -s 7
+          Start-Sleep -s 8
           }
