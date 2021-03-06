@@ -29,6 +29,6 @@ jobs:
           Start-Process -WindowStyle Hidden D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
           for (;;) 
           {  
-          Invoke-WebRequest -URI http://localhost:4040/api/tunnels | jq -r .tunnels[].public_url
+          curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[].public_url
           Start-Sleep -s 8
           }
