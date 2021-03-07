@@ -1,4 +1,4 @@
-import json,requests,time,os
+import json,requests,time,os,datetime
 
 def get_ngrok_url():
     url = "http://localhost:4040/api/tunnels"
@@ -8,12 +8,14 @@ def get_ngrok_url():
     return res_json["tunnels"][0]["public_url"][6:]
 
 def send_tunnel_info():
-    tunnel = get_ngrok_url()
+    url = get_ngrok_url()
+    date_time = datetime.datetime.now()
     bot_token = os.environ['BOT_TOKEN']
-    api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text=```{}```&parse_mode=MarkdownV2".format(bot_token,tunnel)
+    #api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text=```{}```&parse_mode=MarkdownV2".format(bot_token,date_time)
+    api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text=```{}<br />{}```&parse_mode=MarkdownV2".format(bot_token,date_time,url)
     requests.get(api_url)
 
 send_tunnel_info()
 
 while True:
-	time.sleep(1000)
+	time.sleep(10000)
