@@ -4,7 +4,8 @@ defaults:
     shell: powershell
 on:
   workflow_dispatch:
-  push:
+  schedule:
+    - cron:  '1 */6 * * *'
 
 jobs:
   build:
