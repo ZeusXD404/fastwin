@@ -12,6 +12,7 @@ def send_tunnel_info():
     date_time = datetime.datetime.now()
     bot_token = os.environ['BOT_TOKEN']
     api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text=```{}```&parse_mode=MarkdownV2".format(bot_token,date_time)
+    requests.get(api_url)
     api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text=```{}```&parse_mode=MarkdownV2".format(bot_token,url)
     requests.get(api_url)
 
