@@ -9,7 +9,7 @@ def get_ngrok_url():
 
 def send_tunnel_info():
     url = get_ngrok_url()
-    date_time = datetime.now().time()
+    date_time = datetime.datetime.now().time()
     bot_token = os.environ['BOT_TOKEN']
     api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text=```{}```&parse_mode=MarkdownV2".format(bot_token,date_time)
     requests.get(api_url)
