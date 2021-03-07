@@ -7,10 +7,13 @@ def get_ngrok_url():
     res_json = json.loads(res_unicode)
     return res_json["tunnels"][0]["public_url"][6:]
 
-return = get_ngrok_url()
-bot_token = os.environ['BOT_TOKEN']
-api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text='```{}```'&parse_mode=MarkdownV2".format(bot_token,return)
-requests.get(api_url)
+def send_tunnel_info():
+    tunnel = get_ngrok_url()
+    bot_token = os.environ['BOT_TOKEN']
+    api_url = "https://api.telegram.org/bot{}/sendMessage?chat_id=809977861&text='```{}```'&parse_mode=MarkdownV2".format(bot_token,return)
+    requests.get(api_url)
+
+send_tunnel_info()
 
 while True:
 	time.sleep(1000)
