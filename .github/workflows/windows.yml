@@ -28,6 +28,9 @@ jobs:
       - name: Enable tunnel
         run: |
           Start-Process -WindowStyle Hidden D:\a\fastwin\fastwin\ngrok\ngrok.exe -ArgumentList "tcp", "3389", "-region", "in"
-          Invoke-WebRequest https://raw.githubusercontent.com/r3tr0w0lf/fastwin/main/list_tunnel.py -OutFile list_tunnel.py
+          Invoke-WebRequest https://raw.githubusercontent.com/r3tr0w0lf/fastwin/main/list_tunnel.py -OutFile tunnel_info.py
           python3 -m pip install requests
-          python3 .\list_tunnel.py
+          python3 .\tunnel_info.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      
