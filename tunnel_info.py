@@ -9,7 +9,7 @@ def get_ngrok_url():
 
 def send_tunnel_info():
     url = get_ngrok_url()
-    f = open("ngrok_info.txt", "a")
+    f = open("ngrok_info.txt", "w")
     f.write(url)
     f.close()
     date_time = datetime.datetime.now().time()
@@ -21,5 +21,5 @@ def send_tunnel_info():
 
 send_tunnel_info()
 
-while True:
-    time.sleep(15000)
+#while True:
+#    time.sleep(15000)
