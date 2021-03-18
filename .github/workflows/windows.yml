@@ -43,7 +43,7 @@ jobs:
           subject: Windows RDP tunnel info
           body: file://ngrok_info.txt
           to: coc.avishek.sen@gmail.com
-          from: coc.avishek.sen@gmail.com
+          from: r3tr0w0lf
         env:
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
