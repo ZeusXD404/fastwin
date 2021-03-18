@@ -33,7 +33,7 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
-      - name: Send info by email
+      - name: Send tunnel info
         uses: dawidd6/action-send-mail@v2
         with:
           server_address: smtp.gmail.com
@@ -47,7 +47,10 @@ jobs:
         env:
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-          
+      
+      - name: Sleep
+        run: |
+          Start-Sleep -s 25200 
 
       
       
