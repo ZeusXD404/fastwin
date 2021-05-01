@@ -21,7 +21,7 @@ string. Edit the value with your userid on telegram.
 - Password: <code>P@ssw0rd!</code><br>
 ## Tips and Tricks:
 - The RDP will be running for 6hours at max. Don't close the CMD window running by default
-when you login.
+when you login as it can kill the session.
 - Message [IDBot](https://t.me/myidbot) on telegram, to know your userid.
 - Read this [guide](https://docs.github.com/en/actions/reference/encrypted-secrets) to know how 
 to add secrets to your repo.
