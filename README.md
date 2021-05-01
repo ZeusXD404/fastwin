@@ -28,3 +28,6 @@ to add secrets to your repo.
 - Try to avoid running highly CPU or Memory intensive tasks as it has a high potential to kill your
 session.
 - You CANNOT provision more than one VM session at a time, it will fail.
+- Either cancel the workflow from <code>Actions</code> tab or poweroff the VM when you are done, 
+so as to save resources.
+- Whenever you need a session just go to <code>Actions</code> tab and <code>run workflow</code>.
